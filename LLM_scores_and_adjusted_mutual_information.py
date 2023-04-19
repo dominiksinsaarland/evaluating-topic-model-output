@@ -60,9 +60,11 @@ def compute_adjusted_NMI_wikitext(broad_categories=True):
 	
 # experiments are: ["bills_broad", "wikitext_broad", "wikitext_specific"]
  
-experiment = "bills_broad"
+# experiment = "bills_broad"
+experiment = "wikitext_broad"
+experiment = "wikitext_specific"
 if experiment == "bills_broad":
-	dataset = "bills":
+	dataset = "bills"
 	cluster_metrics = compute_adjusted_NMI_bills()
 	paths = ["runs/outputs/k_selection/bills-labeled/vocab_15k/k-" + str(i) for i in range(20, 420, 20)]
 	df = pd.read_csv("LLM-scores/LLM_outputs_bills_broad.csv")
@@ -117,7 +119,7 @@ AMI = StandardScaler().fit_transform(AMI).squeeze()
 fig = plt.figure()
 ax = fig.add_subplot(111)
 plt.plot(average_goodness, label="LLM score", color="tab:red")
-plt.plot(nmis, label = plt_label, color="tab:blue")
+plt.plot(AMI, label = plt_label, color="tab:blue")
 plt.legend()
 ax.set_ylabel("z-scores")
 ax.set_xlabel("number of clusters")
