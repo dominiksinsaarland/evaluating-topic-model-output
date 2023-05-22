@@ -25,12 +25,12 @@ We can then call an LLM to automatically annotate the intruder words for each to
 python src-human-correlations/chatGPT_evaluate_intruders.py --API_KEY a_valid_openAI_api_key
 ```
 
-For the ratings task, simply call the ratings outfile (no need to generate a dataset first)
+For the ratings task, simply call the file which rates topic word sets (no need to generate a dataset first)
 
 ```shell
 python src-human-correlations/chatGPT_evaluate_topic_ratings.py --API_KEY a_valid_openAI_api_key
 ```
-(In case the openAI API breaks, we simply saved the output in a json file, and restarted the script while skipping all already annotated datapoints.)
+(In case the openAI API breaks, we simply save all output in a json file, and would restart the script while skipping all already annotated datapoints.)
 
 
 ### Evaluation LLMs and Human Correlations
