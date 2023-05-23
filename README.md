@@ -1,6 +1,6 @@
 # Re-visiting Automated Topic Model Evaluation with Large Language Models
 
-This repo contains code and data for our [arxiv preprint](https://aps.arxiv.org/abs/2305.12152) about assessing topic model output with Large Language Models
+This repo contains code and data for our [arxiv preprint](https://aps.arxiv.org/abs/2305.12152) about assessing topic model output with Large Language Models.
 
 ## Installation
 
