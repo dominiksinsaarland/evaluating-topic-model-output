@@ -2,7 +2,7 @@
 
 This repo contains code and data for our [arxiv preprint](https://aps.arxiv.org/abs/2305.12152) about assessing topic model output with Large Language Models
 
-# installation
+## Installation
 
 ```shell
 pip install --upgrade openai
@@ -10,7 +10,7 @@ pip install pandas
 ```
 
 
-# Large Language Models and Topics with Human Annotations
+## Large Language Models and Topics with Human Annotations
 
 Download topic words and human annotations from the paper [Is Automated Topic Model Evaluation Broken?](https://arxiv.org/abs/2107.02173) from their [github repository](https://github.com/ahoho/topics/blob/dev/data/human/all_data/all_data.json).
 
@@ -47,7 +47,7 @@ python src-human-correlations/human_correlations_bootstrap.py --filename coheren
 
 
 
-# Evaluating Output of Topic Models with Different Numbers of Topics
+## Evaluating Output of Topic Models with Different Numbers of Topics
 
 Download fitted topic models and metadata for two datasets (bills and wikitext) [here](https://www.dropbox.com/s/huxdloe5l6w2tu5/topic_model_k_selection.zip?dl=0) and unzip
 
@@ -75,7 +75,7 @@ python src-number-of-topics/chatGPT_document_label_assignment.py --API_KEY a_val
 python src-number-of-topics/LLM_scores_and_ARI.py --label_categories broad --method label_assignment --dataset bills --label_categories broad --filename number-of-topics-section-4/document_label_assignment_wikitext_broad.jsonl
 ```
 
-# questions
+## questions
 
 If anything should not work or is unclear, please don't hesitate to contact the authors
 
