@@ -20,15 +20,27 @@ os.makedirs("computed/figures", exist_ok=True)
 N_CLUSTER = range(20, 420, 20)
 
 data = list(csv.DictReader(
-    open(f"LLM-scores-3/{args.experiment}_dataframe_all_results.csv", "r")))
+    open(f"repo-old/LLM-scores-3/{args.experiment}_dataframe_all_results.csv", "r")))
 
+# plot figures
+fig = plt.figure(figsize=(3.5, 2))
+ax1 = plt.gca()
+ax2 = ax1.twinx()
+ax3 = ax1.twinx()
 if args.experiment == "bills_broad":
     dataset = "bills"
     outfile_name = "n_clusters_bills_broad.pdf"
-    plt_title = "BillSum, broad, $\\rho_D = RHO_CORR1$ $\\rho_W = RHO_CORR2$"
+    plt_title = "BillSum, broad, $\\rho_D = RHO_CORR1$ $\\rho_W = RHO_CORR2$  "
     left_ylab = True
     show_legend = True
     degree = 4
+
+    ax3.tick_params(axis='y', colors="#3d518c")
+    ax3.yaxis.set_label_position('left')
+    ax3.yaxis.set_ticks_position('left')
+    ax3.set_ylabel("Document LLM", color="#3d518c")
+    ax1.set_yticks([])
+    ax2.set_axis_off()
 elif args.experiment == "wikitext_broad":
     dataset = "wikitext"
     outfile_name = "n_clusters_wikitext_broad.pdf"
@@ -36,23 +48,34 @@ elif args.experiment == "wikitext_broad":
     left_ylab = False
     show_legend = False
     degree = 4
+    ax1.set_yticks([])
+    ax2.set_axis_off()
+    ax3.set_yticks([])
+    ax1.set_ylabel("|", color="white")
+    ax3.set_ylabel("|", color="white")
 elif args.experiment == "wikitext_specific":
     dataset = "wikitext"
     outfile_name = "n_clusters_wikitext_specific.pdf"
-    plt_title = "Wikitext, specific, $\\rho_D = RHO_CORR1$ $\\rho_W = RHO_CORR2$"
+    plt_title = "    Wikitext, specific, $\\rho_D = RHO_CORR1$ $\\rho_W = RHO_CORR2$"
     left_ylab = False
     show_legend = False
     degree = 4
+    # ax1.set_yticks([])
+    # ax3.tick_params(axis='y', colors="#3d518c")
+    # ax2.set_axis_off()
+    # ax3.set_axis_off()
+
+    ax1.tick_params(axis='y', colors="#933d35")
+    ax1.yaxis.set_label_position('right')
+    ax1.yaxis.set_ticks_position('right')
+    ax1.set_ylabel("ARI", color="#933d35")
+    ax3.set_axis_off()
+    ax2.set_axis_off()
 
 data_llm_word = [float(x["LLM Scores Wordset"]) for x in data]
 data_llm_doc = [float(x["LLM Scores Documentset"]) for x in data]
 data_ari = [float(x["ARI"]) for x in data]
 
-# plot figures
-fig = plt.figure(figsize=(3.5, 2))
-ax1 = plt.gca()
-ax2 = ax1.twinx()
-ax3 = ax1.twinx()
 SCATTER_STYLE = {"edgecolor": "black", "s": 30}
 l1 = ax1.scatter(
     N_CLUSTER,
@@ -79,9 +102,6 @@ l3 = ax3.scatter(
 # ax1.axes.get_yaxis().set_visible(False)
 # print to one digit
 # ax1.yaxis.set_major_formatter(FormatStrFormatter('%.0f'))
-ax1.set_yticks([])
-ax2.set_axis_off()
-ax3.set_axis_off()
 
 xticks_fine = np.linspace(min(N_CLUSTER), max(N_CLUSTER), 500)
 
@@ -113,10 +133,10 @@ if show_legend:
         edgecolor="black",
         facecolor="#dddddd"
     )
-if left_ylab:
-    ax1.set_ylabel("Metric Scores")
-else:
-    ax1.set_ylabel(" ")
+# if left_ylab:
+#     ax1.set_ylabel("Metric Scores")
+# else:
+#     ax1.set_ylabel(" ")
 
 ax1.set_xlabel("Number of topics")
 plt.xticks(N_CLUSTER[::3], N_CLUSTER[::3])
@@ -131,6 +151,6 @@ plt.title(
     .replace("RHO_CORR2", f"{statistic_word[0]:.2f}")
 )
 
-plt.tight_layout(pad=0.0)
+plt.tight_layout(pad=0.1)
 plt.savefig("computed/figures/" + outfile_name)
 plt.show()
