@@ -1,8 +1,6 @@
 # Re-visiting Automated Topic Model Evaluation with Large Language Models
 
-This repo contains code and data for our [arxiv preprint](https://aps.arxiv.org/abs/2305.12152) about assessing topic model output with Large Language Models.
-Cite as:
-
+This repo contains code and data for our [EMNLP 2023 paper](https://aps.arxiv.org/abs/2305.12152) about assessing topic model output with Large Language Models.
 ```
 @misc{stammbach2023revisiting,
   title={Re-visiting Automated Topic Model Evaluation with Large Language Models}, 
@@ -15,11 +13,10 @@ Cite as:
 }
 ```
 
-## Installation
+## Prerequisites
 
 ```shell
-pip install --upgrade openai
-pip install pandas
+pip install --upgrade openai pandas
 ```
 
 ## Large Language Models and Topics with Human Annotations
@@ -58,7 +55,7 @@ python src-human-correlations/human_correlations_bootstrap.py --filename coheren
 ```
 
 
-## Evaluating Output of Topic Models with Different Numbers of Topics
+## Evaluating Topic Models with Different Numbers of Topics
 
 Download fitted topic models and metadata for two datasets (bills and wikitext) [here](https://www.dropbox.com/s/huxdloe5l6w2tu5/topic_model_k_selection.zip?dl=0) and unzip
 
@@ -89,3 +86,6 @@ python src-number-of-topics/LLM_scores_and_ARI.py --label_categories broad --met
 ## Questions
 
 Please contact [Dominik Stammbach](dominik.stammbach@gess.ethz.ch) regarding any questions.
+
+
+[![Paper video presentation](https://img.youtube.com/vi/qIDjtgWTgjs/0.jpg)](https://www.youtube.com/watch?v=qIDjtgWTgjs)
