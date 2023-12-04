@@ -85,7 +85,7 @@ python src-number-of-topics/LLM_scores_and_ARI.py --label_categories broad --met
 
 ## Questions
 
-Please contact [Dominik Stammbach](dominik.stammbach@gess.ethz.ch) regarding any questions.
+Please contact [Dominik Stammbach](mailto:dominik.stammbach@gess.ethz.ch) regarding any questions.
 
 
 [![Paper video presentation](https://img.youtube.com/vi/qIDjtgWTgjs/0.jpg)](https://www.youtube.com/watch?v=qIDjtgWTgjs)
