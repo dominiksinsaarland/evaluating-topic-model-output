@@ -1,15 +1,22 @@
 # Re-visiting Automated Topic Model Evaluation with Large Language Models
 
-This repo contains code and data for our [EMNLP 2023 paper](https://aps.arxiv.org/abs/2305.12152) about assessing topic model output with Large Language Models.
+This repo contains code and data for our [EMNLP 2023 paper](https://aclanthology.org/2023.emnlp-main.581/) about assessing topic model output with Large Language Models.
 ```
-@misc{stammbach2023revisiting,
-  title={Re-visiting Automated Topic Model Evaluation with Large Language Models}, 
-  author={Dominik Stammbach and Vilém Zouhar and Alexander Hoyle and Mrinmaya Sachan and Elliott Ash},
-  year={2023},
-  url={https://aps.arxiv.org/abs/2305.12152},
-  eprint={2305.12152},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL}
+@inproceedings{stammbach-etal-2023-revisiting,
+    title = "Revisiting Automated Topic Model Evaluation with Large Language Models",
+    author = "Stammbach, Dominik  and
+      Zouhar, Vil{\'e}m  and
+      Hoyle, Alexander  and
+      Sachan, Mrinmaya  and
+      Ash, Elliott",
+    booktitle = "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.emnlp-main.581",
+    doi = "10.18653/v1/2023.emnlp-main.581",
+    pages = "9348--9357"
 }
 ```
 
